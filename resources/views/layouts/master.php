@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?= view($slot ?? "") ?>
+    <?= $slot() ?>
     <script src="./js/app.js"></script>
 </body>
 

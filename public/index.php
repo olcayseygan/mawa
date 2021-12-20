@@ -1,4 +1,7 @@
 <?php
 require "./../setup.php";
 
-view("layouts.master");
+require_once __ROOT__ . "/routers/web.php";
+
+Database::connect();
+App::run();

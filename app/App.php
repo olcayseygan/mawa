@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Routing\Route;
-
 class App {
     private static $routers = [];
     public static function add_route($route) {

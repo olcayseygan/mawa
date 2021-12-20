@@ -1,6 +1,8 @@
 <?php
 class HomeController extends Controller {
     public function index() {
-        return view("layouts.master", ["slot" => "home"]);
+        $query = Database::call()->query("SELECT * FROM test");
+        $results = $query->fetchAll();
+        return view("home", ["data" => $results]);
     }
 }
