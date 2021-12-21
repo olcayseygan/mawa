@@ -2,6 +2,7 @@
 class Router {
     static private $QUERY_STRING = "(?:\?(?:&?[^=&]*=[^=&]*)*)*";
 
+    static public $list = [];
     static public $patterns = [];
 
     static public function match($router) {
@@ -27,7 +28,7 @@ class Router {
     }
 
     static private function add_route($url, $method, $controller, $function) {
-        App::add_route([$url, $method, $controller, $function]);
+        array_push(self::$list, [$url, $method, $controller, $function]);
     }
 
     static public function get($url, $controller, $function) {
