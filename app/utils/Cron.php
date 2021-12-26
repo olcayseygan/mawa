@@ -5,7 +5,6 @@ class Cron {
     }
 
     public function check($time) {
-        echo $time, $this->cron;
         return eval(sprintf("return %s;", implode(" and ", array_map(function ($match) {
             [$date, $cron] = $match;
             $tabs = explode(",", $cron);

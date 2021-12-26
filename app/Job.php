@@ -1,5 +1,6 @@
 <?php
 class Job {
+    private $cron = null;
     public function __construct($cron) {
         switch ($cron) {
             case "@yearly":
@@ -40,6 +41,10 @@ class Job {
             pclose(popen("start /B " . $cmd, "r"));
         else
             exec($cmd . " > /dev/null &");
+    }
+
+    public function get_cron() {
+        return $this->cron;
     }
 
     public static function stop_job($key) {
