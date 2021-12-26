@@ -7,4 +7,6 @@ return [
     "DB_USER" => "root",
     "DB_PASS" => "",
     "DB_CHARSET" => "utf8",
+
+    "TIMEZONE" => "Europe/Istanbul"
 ];

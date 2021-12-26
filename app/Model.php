@@ -1,16 +1,19 @@
 <?php
 class Model {
-    static private $db = null;
     static protected function db() {
-        if (!self::$db) {
-            $keys = [env("DB_CONNECTION"), env("DB_HOST"), env("DB_PORT"), env("DB_NAME"), env("DB_CHARSET")];
-            $dsn = sprintf("%s:host=%s:%s;dbname=%s;charset=%s", ...$keys);
-            try {
-                self::$db = new PDO($dsn, env("DB_USER"), env("DB_PASS"));
-            } catch (PDOException $e) {
-                die($e->getMessage());
-            }
-        }
-        return self::$db;
+        return Database::get();
+    }
+
+    protected static function query($filename) {
+        $root = __ROOT__;
+        if (!file_exists($path = "$root/resources/sql/$filename.sql"))
+            return null;
+        return file_get_contents($path);
+    }
+
+    protected static function convert($results) {
+        return array_map(function ($result) {
+            return (object)$result;
+        }, $results);
     }
 }

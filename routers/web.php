@@ -1,3 +1,4 @@
 <?php
 
-Router::get("/", "HomeController", "index");
+Router::get("/", "FilmController", "index");
+Router::get("/{film}", "FilmController", "show");
