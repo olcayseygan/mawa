@@ -1,6 +1,9 @@
 <?php
 class Database {
     private static $db = null;
+    /**
+     * @return PDO
+     */
     public static function get() {
         if (!self::$db) {
             $keys = [env("DB_CONNECTION"), env("DB_HOST"), env("DB_PORT"), env("DB_NAME"), env("DB_CHARSET")];

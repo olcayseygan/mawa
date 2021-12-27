@@ -1,5 +1,7 @@
 <?php view("layouts.master", [], function () use ($films) { ?>
-    <?php foreach ($films as $film) : ?>
-        <h1><?= $film->id ?></h1>
-    <?php endforeach ?>
+    <div class="owl-carousel film-category">
+        <?php foreach ($films as $film) : ?>
+            <?= view("components.film-card", ["film" => $film]) ?>
+        <?php endforeach ?>
+    </div>
 <?php }); ?>

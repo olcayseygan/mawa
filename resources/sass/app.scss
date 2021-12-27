@@ -1,7 +1,32 @@
+@import "~owl.carousel/dist/assets/owl.carousel.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  @apply text-red-500;
+body {
+  @apply bg-zinc-900 text-white;
+}
+
+.film-category {
+  @apply overflow-hidden;
+  .owl-stage {
+    @apply flex gap-x-4 py-2;
+    .owl-item {
+      @apply transition;
+      &:not(.active) {
+        @apply opacity-50;
+      }
+    }
+  }
+  .film-card {
+    min-width: 14rem;
+    @apply relative w-56 h-96 flex-1 overflow-hidden rounded shadow-md shadow-slate-900;
+    & > * {
+      @apply absolute inset-0 w-full h-full;
+    }
+    & > img {
+      @apply object-cover;
+    }
+  }
 }
