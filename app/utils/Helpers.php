@@ -29,8 +29,10 @@ function view($view = null, $data = [], $slot = null) {
     assert(gettype($data) == "array", '$data, array olmalıdır.');
     assert(in_array(gettype($slot), ["object", "NULL"]), '$data, object veya null olmalıdır.');
 
-    $dir = __ROOT__ . "/resources/views/" . str_replace(".", "/", $view) . ".php";
-    if (!file_exists($dir))
+    $root = __ROOT__;
+    $replaced = str_replace(".", "/", $view);
+
+    if (!file_exists($dir = "$root/resources/views/$replaced.php"))
         throw new Exception("$view dosyası bulunamadı.");
 
     if (!is_null($slot)) {
@@ -47,4 +49,20 @@ function view($view = null, $data = [], $slot = null) {
     $content = ob_get_contents();
     ob_end_clean();
     echo $content;
+}
+
+function asset($asset, ...$data) {
+    $base = Request::base();
+    return sprintf("$base/$asset", ...$data);
+}
+
+function url($url, ...$data) {
+    return asset($url, ...$data);
+}
+
+function query($query) {
+    $root = __ROOT__;
+    if (!file_exists($dir = "$root/resources/sql/$query.sql"))
+        throw new Exception("$query dosyası bulunamadı.");
+    return file_get_contents($dir);
 }

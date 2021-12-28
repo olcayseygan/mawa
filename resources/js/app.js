@@ -1,19 +1,30 @@
-import * as $ from "jquery";
-import "owl.carousel";
+import Swiper, { Navigation, Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-$(".film-category").owlCarousel({
-    dots: false,
-    nav: false,
-    stagePadding: 72,
-    responsive: {
-        0: {
-            items: 1
-        },
-        1280: {
-            items: 5
-        },
-        1536: {
-            items: 8
-        }
-    }
+Swiper.use([Pagination, Navigation]);
+
+new Swiper(".category-swiper", {
+    slidesPerView: "auto",
+    spaceBetween: 16,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    // pagination: {
+    //     el: ".swiper-pagination",
+    // },
+    mousewheel: true,
+    keyboard: true,
+});
+
+new Swiper(".most-watched-swiper", {
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+    },
 });

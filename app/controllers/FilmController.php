@@ -1,10 +1,9 @@
 <?php
 class FilmController extends Controller {
     public function index() {
-        // $job = new Job("* * * * *");
-        // $job->run("test", "TestJob");
-        $films = Film::all();
-        return view("home", ["films" => $films]);
+        $most_watched_films = Film::most_watcheds();
+        $categories = Film::in_categories();
+        return view("home", ["most_watched_films" => $most_watched_films, "categories" => $categories]);
     }
 
     public function show($film) {

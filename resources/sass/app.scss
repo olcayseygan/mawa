@@ -1,32 +1,85 @@
-@import "~owl.carousel/dist/assets/owl.carousel.min.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-900 text-white;
+  // @apply;
 }
 
-.film-category {
-  @apply overflow-hidden;
-  .owl-stage {
-    @apply flex gap-x-4 py-2;
-    .owl-item {
-      @apply transition;
-      &:not(.active) {
-        @apply opacity-50;
+.category-list {
+  @apply flex flex-col divide-y-2;
+  .category-container {
+    h1 {
+      @apply relative pl-2 pt-2 font-bold text-2xl text-slate-700;
+      a {
+        @apply relative flex items-center w-fit;
+        span {
+          @apply absolute left-full pl-2 text-base leading-4 font-normal text-primary-500 opacity-0 -translate-x-10 whitespace-nowrap transition-all duration-500;
+        }
+      }
+
+      &:hover {
+        span {
+          @apply opacity-100 translate-x-0;
+        }
       }
     }
   }
-  .film-card {
-    min-width: 14rem;
-    @apply relative w-56 h-96 flex-1 overflow-hidden rounded shadow-md shadow-slate-900;
-    & > * {
-      @apply absolute inset-0 w-full h-full;
+}
+
+.swiper {
+  @apply w-full overflow-hidden;
+  &.most-watched-swiper {
+    height: 100vh;
+    @apply mb-8;
+    .swiper-wrapper {
+      @apply relative;
+      .swiper-slide {
+        a > img {
+          @apply w-full brightness-50;
+        }
+        > div {
+          @apply box-content absolute left-0 bottom-0 p-24 w-96 text-white z-10;
+          h1 {
+            @apply text-4xl font-bold;
+          }
+          h2 {
+            @apply py-4 text-2xl font-semibold;
+            span {
+              @apply px-2 bg-red-600/75 text-white text-3xl rounded;
+            }
+          }
+          p {
+            @apply text-slate-200;
+          }
+          > a {
+            @apply block w-fit px-4 py-2 mt-4 bg-slate-400/50 font-semibold text-white rounded;
+          }
+        }
+      }
     }
-    & > img {
-      @apply object-cover;
+  }
+  &.category-swiper {
+    .swiper-wrapper {
+      @apply flex p-2;
+      .swiper-slide {
+        min-width: 14rem;
+        @apply relative w-36 overflow-hidden shadow-lg  rounded-lg transition;
+        a > img {
+          @apply w-full h-72 object-cover transition;
+        }
+        > span {
+          @apply absolute left-0 bottom-0 py-1 px-2 font-light text-white bg-secondary-500 rounded-tr-md shadow-lg shadow-secondary-700 transition-all;
+        }
+        &:hover {
+          a > img {
+            @apply brightness-75 scale-125;
+          }
+          > span {
+            @apply text-lg;
+          }
+        }
+      }
     }
   }
 }
