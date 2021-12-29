@@ -7,14 +7,11 @@ Swiper.use([Pagination, Navigation]);
 
 new Swiper(".category-swiper", {
     slidesPerView: "auto",
-    spaceBetween: 16,
+    spaceBetween: 32,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
-    // pagination: {
-    //     el: ".swiper-pagination",
-    // },
     mousewheel: true,
     keyboard: true,
 });

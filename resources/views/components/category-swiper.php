@@ -4,4 +4,6 @@
             <?= view("components.category-swiper-slide", ["item" => $item]) ?>
         <?php endforeach ?>
     </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
 </div>

@@ -31,7 +31,7 @@ body {
   @apply w-full overflow-hidden;
   &.most-watched-swiper {
     height: 100vh;
-    @apply mb-8;
+    @apply mb-8 shadow-lg;
     .swiper-wrapper {
       @apply relative;
       .swiper-slide {
@@ -39,7 +39,7 @@ body {
           @apply w-full brightness-50;
         }
         > div {
-          @apply box-content absolute left-0 bottom-0 p-24 w-96 text-white z-10;
+          @apply box-content absolute left-0 bottom-0 p-24 w-96 text-white z-10 pointer-events-none;
           h1 {
             @apply text-4xl font-bold;
           }
@@ -53,7 +53,10 @@ body {
             @apply text-slate-200;
           }
           > a {
-            @apply block w-fit px-4 py-2 mt-4 bg-slate-400/50 font-semibold text-white rounded;
+            @apply block w-fit px-4 py-2 mt-4 bg-slate-400/50 font-semibold text-white rounded transition pointer-events-auto;
+            &:hover {
+              @apply bg-slate-400;
+            }
           }
         }
       }
@@ -63,23 +66,74 @@ body {
     .swiper-wrapper {
       @apply flex p-2;
       .swiper-slide {
-        min-width: 14rem;
-        @apply relative w-36 overflow-hidden shadow-lg  rounded-lg transition;
-        a > img {
-          @apply w-full h-72 object-cover transition;
-        }
-        > span {
-          @apply absolute left-0 bottom-0 py-1 px-2 font-light text-white bg-secondary-500 rounded-tr-md shadow-lg shadow-secondary-700 transition-all;
-        }
-        &:hover {
-          a > img {
-            @apply brightness-75 scale-125;
-          }
-          > span {
-            @apply text-lg;
+        @apply w-fit;
+      }
+    }
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply text-white drop-shadow;
+  }
+  .swiper-pagination-bullet {
+    @apply bg-white/75;
+    &.swiper-pagination-button-active {
+      @apply bg-white;
+    }
+  }
+}
+
+.film-details {
+  > div {
+    @apply flex gap-x-4 p-4;
+    > img {
+      @apply w-40 h-72 rounded object-cover;
+    }
+    > div {
+      @apply flex flex-col gap-y-2;
+      > h1 {
+        @apply text-3xl font-bold;
+      }
+      > ul {
+        @apply flex gap-x-4;
+        > li {
+          @apply block py-1 px-2 bg-neutral-200 rounded transition;
+          &:hover {
+            @apply bg-neutral-300 shadow;
           }
         }
       }
+      > p {
+        @apply text-stone-800;
+      }
+    }
+  }
+}
+
+.category-details {
+  @apply p-4;
+  > h1 {
+    @apply mb-8 text-3xl font-bold;
+  }
+  > div {
+    @apply flex flex-wrap gap-8;
+  }
+}
+
+.film-poster {
+  min-width: 14rem;
+  @apply relative w-40 overflow-hidden shadow-lg  rounded-lg transition;
+  a > img {
+    @apply w-full h-72 object-cover transition;
+  }
+  > span {
+    @apply absolute left-0 bottom-0 py-1 px-2 font-light text-white bg-secondary-500 rounded-tr-md shadow-lg shadow-secondary-700 transition-all;
+  }
+  &:hover {
+    a > img {
+      @apply brightness-75 scale-125;
+    }
+    > span {
+      @apply text-lg;
     }
   }
 }

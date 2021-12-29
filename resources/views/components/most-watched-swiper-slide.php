@@ -1,5 +1,5 @@
 <?php
-$url = url("#");
+$url = url("film/%s", $film["slug"]);
 $image_url = asset("images/posters/%s", $film["filename"]);
 ?>
 
@@ -9,6 +9,6 @@ $image_url = asset("images/posters/%s", $film["filename"]);
         <h1><a href=""><?= $film["name"] ?></a></h1>
         <h2>Filmlerde Bugün <span><?= $film["rank"] ?> Numara</span></h2>
         <p><?= substr($film["description"], 0, 200) ?>...</p>
-        <a href="">Daha Fazla Bilgi</a>
+        <a href="<?= $url ?>">Daha Fazla Bilgi</a>
     </div>
 </div>

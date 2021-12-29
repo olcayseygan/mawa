@@ -24,7 +24,7 @@ class Router {
             return;
 
         require_once $file;
-        echo call_user_func([new $class, $function]);
+        echo call_user_func_array([new $class, $function], $regexps);
     }
 
     static private function add_route($url, $method, $controller, $function) {

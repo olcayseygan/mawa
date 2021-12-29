@@ -20,14 +20,11 @@ __webpack_require__.r(__webpack_exports__);
 swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation]);
 new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".category-swiper", {
   slidesPerView: "auto",
-  spaceBetween: 16,
+  spaceBetween: 32,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev"
   },
-  // pagination: {
-  //     el: ".swiper-pagination",
-  // },
   mousewheel: true,
   keyboard: true
 });
