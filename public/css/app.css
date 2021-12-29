@@ -470,7 +470,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 .swiper.most-watched-swiper .swiper-wrapper .swiper-slide a > img {
+  height: 100%;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   --tw-brightness: brightness(.5);
   filter: var(--tw-filter);
 }

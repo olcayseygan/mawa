@@ -36,7 +36,7 @@ body {
       @apply relative;
       .swiper-slide {
         a > img {
-          @apply w-full brightness-50;
+          @apply w-full h-full brightness-50 object-cover;
         }
         > div {
           @apply box-content absolute left-0 bottom-0 p-24 w-96 text-white z-10 pointer-events-none;

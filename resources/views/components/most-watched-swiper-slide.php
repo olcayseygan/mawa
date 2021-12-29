@@ -1,6 +1,6 @@
 <?php
 $url = url("film/%s", $film["slug"]);
-$image_url = asset("images/posters/%s", $film["filename"]);
+$image_url = asset("images/covers/%s", $film["filename"]);
 ?>
 
 <div class="swiper-slide">
