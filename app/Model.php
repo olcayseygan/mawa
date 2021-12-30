@@ -1,6 +1,8 @@
 <?php
 class Model {
     /**
+     * Veritabanına erişim için çağırılır.
+     * 
      * @return PDO
      */
     static protected function db() {
@@ -8,8 +10,10 @@ class Model {
     }
 
     /**
-     * @param string
-     * @return string
+     * Dosyada kaydedilen sorguyu kullanmak için erişim sağlar.
+     * 
+     * @param string Kullanılacak sorgunun bulundugu dosya adı.
+     * @return string Dosyada bununan sorgu.
      */
     protected static function query($filename) {
         $root = __ROOT__;

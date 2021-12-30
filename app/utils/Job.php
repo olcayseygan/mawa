@@ -31,12 +31,17 @@ class Job {
     public function run($key, $filename) {
         [$root, $key, $uuid, $filename, $cron] = [__ROOT__, $key, uniqid(), $filename, $this->cron];
 
+        // Eğer aynı anahtarla iş oluşturulmaya çalışılıyorsa, önceki işi durdurur.
         $path = "$root/cache/jobs/$key-$uuid";
         if (!file_exists($path))
             self::stop_job($key);
+
+        // İşin devamlılığı için anahtar dosyasını oluşturuyoruz.
         $file = fopen($path, "w");
         fclose($file);
         $cmd = "php \"$root/job.php\" $key-$uuid $filename \"$cron\"";
+
+        // Arkaplanda çalıştırılabilmesi için platform kontrolü.
         if (substr(php_uname(), 0, 7) == "Windows")
             pclose(popen("start /B " . $cmd, "r"));
         else

@@ -2,7 +2,9 @@
 class Database {
     private static $db = null;
     /**
-     * @return PDO
+     * Veritabanına erişim sağlar.
+     * 
+     * @return PDO Veritabanı objesi.
      */
     public static function get() {
         if (!self::$db) {

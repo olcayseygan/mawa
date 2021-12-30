@@ -51,15 +51,35 @@ function view($view = null, $data = [], $slot = null) {
     echo $content;
 }
 
+/**
+ * Öğenin URL uzantısını verir.
+ * 
+ * @param string Öğenin adresi. örn. images/logo.png
+ * @param array Adrese yerleştirilecek kalıplar.
+ * @return string Öğenin URL uzantısı.
+ */
 function asset($asset, ...$data) {
     $base = Request::base();
     return sprintf("$base/$asset", ...$data);
 }
 
+/**
+ * Adresi protocol ve host ile birleştirir.
+ * 
+ * @param string Adres. örn. home
+ * @param array Adrese yerleştirilecek kalıplar.
+ * @return string Tam URL.
+ */
 function url($url, ...$data) {
     return asset($url, ...$data);
 }
 
+/**
+ * Sorgunun bulunduğu dosyanın içerini getirir.
+ * 
+ * @param string Dosya yolu.
+ * @return string Dosya içeriği.
+ */
 function query($query) {
     $root = __ROOT__;
     if (!file_exists($dir = "$root/resources/sql/$query.sql"))

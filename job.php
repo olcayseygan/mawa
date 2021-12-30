@@ -18,8 +18,8 @@ while (1) {
         break;
 
     $run_time = date($format);
-    $is_runnable = $crontab->check($run_time);
-    if (is_null($last_run_time) and $is_runnable) {
+    $is_it_time = $crontab->check_its_time($run_time);
+    if (is_null($last_run_time) and $is_it_time) {
         $job->exec();
         $last_run_time = $run_time;
     }
