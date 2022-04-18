@@ -1,3 +1,3 @@
 https://github.com/farisd3v/NetflixClone
 https://github.com/tboothman/imdbphp
-https://github.com/ryanTulus/movie-website-php
+https://github.com/ryanTulus/movie-website-phps
